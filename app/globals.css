@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 16% 6%;
+    --foreground: 210 20% 92%;
+    --card: 220 16% 9%;
+    --card-foreground: 210 20% 92%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 14% 55%;
+    --accent: 160 100% 45%;
+    --accent-foreground: 220 16% 6%;
+    --border: 220 14% 16%;
+    --ring: 160 100% 45%;
+    --primary: 160 100% 45%;
+    --primary-foreground: 220 16% 6%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 210 20% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+    --radius: 0.5rem;
+
+    /* Terminal-specific tokens */
+    --terminal-bg: 220 18% 5%;
+    --terminal-text: 160 30% 70%;
+    --terminal-prompt: 160 100% 45%;
+    --terminal-error: 0 72% 60%;
+    --terminal-success: 160 100% 45%;
+    --terminal-info: 210 80% 60%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Terminal text animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Glow effect for active elements */
+.glow-green {
+  box-shadow: 0 0 12px hsl(160 100% 45% / 0.15);
+}
+
+/* React Flow custom styles */
+.react-flow__background {
+  background: hsl(var(--terminal-bg)) !important;
+}
+
+.react-flow__controls {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+}
+
+.react-flow__controls-button {
+  background: hsl(var(--card)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+  fill: hsl(var(--foreground)) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: hsl(var(--muted)) !important;
+}
